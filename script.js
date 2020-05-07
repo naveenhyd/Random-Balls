@@ -1,12 +1,16 @@
 let ballArray = [];
 let totalBalls = 25;
 let balls = [];
+let screenHeight = window.innerHeight;
+let screenWidth = window.innerWidth;
+
+console.log(`${screenWidth} x ${screenHeight}`);
 
 for (i = 1; i <= totalBalls; i++) {
 	let ball = {};
 	ball.index = i;
-	ball.xaxis = getNumber();
-	ball.yaxis = getNumber();
+	ball.xaxis = getNumber(4,'',screenWidth);
+	ball.yaxis = getNumber(4,'',screenHeight);
 	ballArray.push(ball);
 
 	var element = document.createElement("span");
@@ -49,7 +53,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 function changeDirection() {
 	let i = getNumber(2, 1, totalBalls);
-	console.log(i);
+	// console.log(i);
 	list = document.querySelectorAll(".ball" + i);
 	list.forEach((el, i, ra) => {
 		// console.log(el);
@@ -80,7 +84,7 @@ function changeDirection() {
 function removeBorder(el) {
 	setTimeout(function () {
 		el.style["border"] = "none";
-		console.log("timeout");
+		// console.log("timeout");
 	}, 2000);
 }
 
